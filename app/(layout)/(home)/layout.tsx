@@ -5,10 +5,10 @@ import Sidebar from "@/components/Sidebar";
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="relative">
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="flex">
         <Sidebar />
-        <section className="flex min-h-screen flex-1 flex-col px-6 py-8">
+        <section className="flex min-h-screen flex-1 flex-col px-10 py-24">
           <div className="w-full">{children}</div>
         </section>
       </div>

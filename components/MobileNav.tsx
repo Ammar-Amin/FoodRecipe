@@ -44,10 +44,10 @@ const MobileNav = () => {
               <path
                 fill="none"
                 stroke="#fff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
-                stroke-width="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="3"
                 d="M15.016,22.426c1.835-3.242,4.571-5.909,7.865-7.659"
               ></path>
               <ellipse cx="32" cy="61" opacity=".3" rx="19" ry="3"></ellipse>

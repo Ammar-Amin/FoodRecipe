@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import MobileNav from "@/components/MobileNav";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -18,10 +19,10 @@ const Navbar = () => {
           <path
             fill="none"
             stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="3"
             d="M15.016,22.426c1.835-3.242,4.571-5.909,7.865-7.659"
           ></path>
           <ellipse cx="32" cy="61" opacity=".3" rx="19" ry="3"></ellipse>
@@ -49,7 +50,12 @@ const Navbar = () => {
       </Link>
 
       <div className="flex-between gap-5">
-        {/* signUp & login btn  */}
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
 
         <MobileNav />
       </div>

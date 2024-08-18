@@ -12,6 +12,45 @@
   }
 }
 
+/* ----------------- clerk class override -------------------  */
+.cl-socialButtons {
+  filter: invert(1);
+}
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+
+.cl-dividerLine {
+  background: #252a41;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #565761;
+}
+
+.cl-internal-wkkub3 {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton:hover,
+.cl-internal-wkkub3:hover,
+.cl-userButtonPopoverActionButtonIcon:hover {
+  color: rgb(216, 202, 202)
+}
+
+/* -------------------------------------------------------  */
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;

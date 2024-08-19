@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import HomeMeetCards from "./HomeMeetCards";
 import { useRouter } from "next/navigation";
+import MeetingPopupModal from "./MeetingPopupModal";
 
 const DiffMeetingLists = () => {
   const [meetingState, setMeetingState] = useState<
     "newMeeting" | "joinMeeting" | "scheduleMeeting" | undefined
   >();
   const router = useRouter();
+
+  const createMeeting = () => {};
 
   return (
     <section
@@ -41,6 +44,14 @@ const DiffMeetingLists = () => {
         desc="Your Recordings"
         color="bg-lime-600"
         handleClick={() => router.push("/recordings")}
+      />
+
+      <MeetingPopupModal
+        isOpen={meetingState == "newMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Start an Instant Meeting"
+        buttonText="Start Meeting"
+        handleClick={createMeeting}
       />
     </section>
   );

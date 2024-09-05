@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
 import {
   CallControls,
+  CallingState,
   CallParticipantsList,
   CallStatsButton,
   PaginatedGridLayout,
   SpeakerLayout,
+  useCallStateHooks,
 } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
 import {
@@ -17,6 +19,8 @@ import {
 import { LayoutList, Users } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
+import Loader from "./Loader";
+import { Button } from "./ui/button";
 
 type CallLayoutType = "speaker-left" | "speaker-right" | "grid";
 
@@ -28,6 +32,13 @@ const MeetingRoom = () => {
   const isPersonalRoom = !!searchParams.get("personal");
   // personal = true, !'personal' = false, !!'personal' = true
   // undefined = false, !undefined = true, !!undefined = false
+
+  const { useCallCallingState } = useCallStateHooks();
+  const callingState = useCallCallingState();
+
+  if (callingState !== CallingState.JOINED) {
+    return <Loader />;
+  }
 
   const CallLayout = () => {
     switch (layout) {
@@ -41,7 +52,7 @@ const MeetingRoom = () => {
   };
 
   return (
-    <section className="relative overflow-hidden w-full h-screen p-4">
+    <section className="relative overflow-hidden w-full h-screen sm:p-4">
       <div className="relative size-full flex-center">
         <div className="size-full max-w-[1000px]  flex items-center">
           <CallLayout />
@@ -55,7 +66,7 @@ const MeetingRoom = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full flex-center gap-4">
+      <div className="fixed bottom-1 w-full flex-center flex-wrap gap-4">
         <CallControls />
 
         <DropdownMenu>
@@ -86,11 +97,12 @@ const MeetingRoom = () => {
 
         <CallStatsButton />
 
-        <button onClick={() => setShowParticipants((prev) => !prev)}>
-          <div className="bg-slate-800 p-2 rounded-full hover:bg-slate-700">
-            <Users size={20} />
-          </div>
-        </button>
+        <Button
+          onClick={() => setShowParticipants((prev) => !prev)}
+          className="bg-slate-800 p-2 rounded-full hover:bg-slate-700 text-white"
+        >
+          <Users size={20} />
+        </Button>
 
         {!isPersonalRoom && <EndCallButton />}
       </div>

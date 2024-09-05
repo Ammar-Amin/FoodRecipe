@@ -91,8 +91,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60px;
-  height: 60px;
+  width: 160px;
+  height: 160px;
   opacity: 0;
   transform-origin: bottom center;
   transform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg);

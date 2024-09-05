@@ -45,7 +45,7 @@ const MeetingSetup = ({
         <DeviceSettings />
       </div>
       <Button
-        className="rounded-lg bg-green-700 text-white"
+        className="rounded-lg bg-green-700 hover:bg-green-800 text-white"
         onClick={() => {
           call.join();
           isSetupComplete(true);

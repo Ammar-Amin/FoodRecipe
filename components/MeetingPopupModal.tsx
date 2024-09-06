@@ -32,7 +32,7 @@ const MeetingPopupModal = ({
       <DialogContent className="w-full max-w-[500px] flex flex-col gap-6 bg-slate-900 p-6 text-white">
         <div className="flex flex-col gap-6">
           {image && (
-            <div>
+            <div className="mx-auto">
               <Image src={image} alt="image" width={72} height={72} />
             </div>
           )}
